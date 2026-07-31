@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="当康文化：AI驱动，即见未来。AI漫剧、仿真人剧、实拍短剧、AI大电影与原创IP开发。">
+  <title>当康文化｜AI驱动·即见未来</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳至主要内容</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <button class="mobile-menu icon-button" id="mobileMenu" aria-label="打开导航" aria-expanded="false" aria-controls="sidebar" title="导航">
+    <i data-lucide="menu"></i>
+  </button>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#home" aria-label="当康文化首页">
+      <span class="brand-mark"><img src="assets/brand/dangkang-logo-display.webp" width="184" height="184" decoding="async" alt="当康文化"></span>
+      <span class="brand-type"><strong>当康文化</strong><small>DANGKANG CULTURE</small></span>
+    </a>
+    <nav class="primary-nav" aria-label="主要导航">
+      <a class="nav-link active" href="#home"><i data-lucide="orbit"></i><span>首页</span><small>01</small></a>
+      <a class="nav-link" href="#business"><i data-lucide="clapperboard"></i><span>核心业务</span><small>02</small></a>
+      <a class="nav-link" href="#cases"><i data-lucide="gallery-horizontal-end"></i><span>作品案例</span><small>03</small></a>
+      <a class="nav-link" href="#team"><i data-lucide="users"></i><span>主创团队</span><small>04</small></a>
+      <a class="nav-link" href="#universe"><i data-lucide="sparkles"></i><span>IP 宇宙</span><small>05</small></a>
+      <a class="nav-link" href="#contact"><i data-lucide="radio-tower"></i><span>合作共创</span><small>06</small></a>
+    </nav>
+    <div class="side-signal">
+      <span class="signal-dot"></span>
+      <div><small>PIPELINE STATUS</small><strong>AI STUDIO ONLINE</strong></div>
+    </div>
+    <div class="side-footer">
+      <span>HANGZHOU · CHINA</span>
+      <span>© 2026 DANGKANG CULTURE</span>
+    </div>
+  </aside>
+
+  <button class="cube-dock" id="cubeDock" type="button" aria-label="返回首页" aria-hidden="true" tabindex="-1">
+    <img src="assets/hero/home-cube.webp" width="1600" height="1333" decoding="async" alt="">
+  </button>
+
+  <main id="content">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow glow-a" aria-hidden="true"></div>
+      <div class="hero-glow glow-b" aria-hidden="true"></div>
+
+      <header class="hero-top">
+        <div class="top-index"><span>DK / 2026</span><span>AI FILM STUDIO</span></div>
+        <div class="live-data">
+          <div><small>LOCAL TIME</small><strong id="clock">00:00:00</strong></div>
+          <span class="data-line"></span>
+          <div><small>HANGZHOU</small><strong id="weather">杭州 · 28°C</strong></div>
+        </div>
+      </header>
+
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> CONTENT × AI</p>
+        <h1 id="hero-title"><span>当康文化</span><br>AI 驱动 · 即见未来</h1>
+        <p class="hero-lead">从漫剧领军者到 AI 电影开拓者，以内容为核，将想象转译成可抵达的银幕世界。</p>
+        <div class="hero-tags" aria-label="核心业务类型">
+          <span>实景短剧</span><span>精品动漫</span><span>AI 大电影</span>
+        </div>
+        <a class="primary-button" href="#universe"><span>进入影宇宙</span><i data-lucide="arrow-up-right"></i></a>
+      </div>
+
+      <button class="hero-cube" id="heroCube" type="button" aria-label="查看作品案例">
+        <img src="assets/hero/home-cube.webp" width="1600" height="1333" fetchpriority="high" decoding="async" alt="当康文化作品魔方">
+      </button>
+
+      <aside class="hero-panel" aria-label="公司数据">
+        <div class="panel-head"><span>STUDIO SIGNAL</span><span class="live-pill"><i></i> LIVE</span></div>
+        <div class="panel-feature">
+          <span class="feature-number">40<span>+</span></span>
+          <p>头部平台 IP<br>改编项目</p>
+        </div>
+        <div class="panel-rule"></div>
+        <dl>
+          <div><dt>最高作品热度</dt><dd>6000万+</dd></div>
+          <div><dt>文旅项目引流</dt><dd>100万人</dd></div>
+          <div><dt>制作周期缩短</dt><dd>70%+</dd></div>
+        </dl>
+        <button class="text-button" data-project="shanhaitu"><span>本期焦点：山海图系列IP</span><i data-lucide="arrow-right"></i></button>
+      </aside>
+
+      <div class="hero-foot">
+        <span>ORIGINAL IP / AI FILM / IMMERSIVE STORY</span>
+        <a href="#business" aria-label="前往核心业务" title="向下浏览"><i data-lucide="arrow-down"></i></a>
+      </div>
+    </section>
+
+    <section class="metrics-band" aria-label="业务数据">
+      <div><strong>6000万+</strong><span>最高作品热度</span></div>
+      <div><strong>40+</strong><span>平台 IP 改编</span></div>
+      <div><strong>100万人</strong><span>文旅项目引流</span></div>
+      <div><strong>70%+</strong><span>制作周期缩短</span></div>
+    </section>
+
+    <section class="section business" id="business" aria-labelledby="business-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow"><span></span> CORE BUSINESS</p><h2 id="business-title">创-投全链路</h2></div>
+        <p>传统影视基因与 AI 工业化生产管线并行，从故事开发到资产交付形成可审阅、可复用、可规模化的创制链路。</p>
+      </div>
+
+      <div class="business-grid">
+        <article class="business-card reveal" style="--accent:#ff5c19">
+          <div class="business-visual"><img data-src="assets/business/foundation.webp" alt="截教大师兄精品动漫视觉" loading="lazy" decoding="async"><span>01 / FOUNDATION</span></div>
+          <div class="business-content">
+            <i data-lucide="panels-top-left"></i>
+            <h3>AI漫剧/仿真人剧</h3>
+            <p>深耕精品动漫与仿真人连续剧，以紧凑叙事和工业化管线打造高热度内容。</p>
+            <ul><li>《末世丧尸感染人类，我感染丧尸》热度 5000万+</li><li>《牵错红线后：暴君成了黏人精》热度 4000万+</li></ul>
+          </div>
+        </article>
+        <article class="business-card reveal" style="--accent:#00a3ff">
+          <div class="business-visual"><img data-src="assets/business/evolution.webp" alt="麻烦请你先告白短剧视觉" loading="lazy" decoding="async"><span>02 / EVOLUTION</span></div>
+          <div class="business-content">
+            <i data-lucide="scan-face"></i>
+            <h3>实拍+AI短剧</h3>
+            <p>保留真人表演的情感张力，以生成式视觉增强完成降本增效与视听升级。</p>
+            <ul><li>《一世怨偶，一世殊途》平台热度 4700万+</li><li>文旅定制项目带动景区引流 100万人次</li></ul>
+          </div>
+        </article>
+        <article class="business-card reveal" style="--accent:#c969ff">
+          <div class="business-visual"><img data-src="assets/business/frontier-jueditian.webp" alt="绝地天通项目视觉" loading="lazy" decoding="async"><span>03 / FRONTIER</span></div>
+          <div class="business-content">
+            <i data-lucide="aperture"></i>
+            <h3>AI大电影</h3>
+            <p>面向院线级长片，突破物理制作边界，建立国风世界观的角色与场景资产库。</p>
+            <ul><li>《山海图》首发三部曲资产筹备中</li><li>从 IP 评估、视觉开发到全套资产交付</li></ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="pipeline reveal" aria-label="AI影视制作流程">
+        <div class="pipeline-intro"><small>PRODUCTION PIPELINE</small><h3>清晰、透明、高效</h3></div>
+        <ol>
+          <li><span>01</span><div><strong>IP 评估</strong><small>潜力与受众判断</small></div></li>
+          <li><span>02</span><div><strong>视觉开发</strong><small>角色与场景预演</small></div></li>
+          <li><span>03</span><div><strong>台本制作</strong><small>叙事与镜头固化</small></div></li>
+          <li><span>04</span><div><strong>资产交付</strong><small>高质量生产素材</small></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section cases" id="cases" aria-labelledby="cases-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow"><span></span> SELECTED WORKS</p><h2 id="cases-title">作品案例</h2></div>
+        <p>我们不仅具备强大的内容自研能力，更是头部平台值得信赖的内容供应商与技术合作伙伴。</p>
+      </div>
+
+      <div class="case-lanes">
+        <section class="case-lane reveal" aria-labelledby="case-live-title">
+          <header><span>01</span><div><small>LIVE ACTION</small><h3 id="case-live-title">真人实拍</h3></div></header>
+          <div class="case-track auto-rail">
+            <article class="case-card"><img data-src="assets/cases/real-trouble.webp" alt="麻烦请你先告白海报" loading="lazy" decoding="async"><span class="case-status">腾讯视频</span><span class="case-copy"><small>都市爱情 / 微短剧</small><strong>麻烦请你先告白</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/real-resentment.webp" alt="一世怨偶一世殊途海报" loading="lazy" decoding="async"><span class="case-status">4700万+</span><span class="case-copy"><small>古装情感 / 微短剧</small><strong>一世怨偶，一世殊途</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/real-antifraud.webp" alt="我在古代当反诈官项目视觉" loading="lazy" decoding="async"><span class="case-status">LIVE ACTION</span><span class="case-copy"><small>古装轻喜 / 实拍</small><strong>我在古代当反诈官</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/real-night.webp" alt="夜色倾心海报" loading="lazy" decoding="async"><span class="case-status">ON AIR</span><span class="case-copy"><small>都市爱情 / 微短剧</small><strong>夜色倾心</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/real-goodbye.webp" alt="再见江湖海报" loading="lazy" decoding="async"><span class="case-status">LIVE ACTION</span><span class="case-copy"><small>文旅演艺 / 实拍</small><strong>再见江湖</strong></span></article>
+          </div>
+        </section>
+
+        <section class="case-lane reveal" aria-labelledby="case-bionic-title">
+          <header><span>02</span><div><small>AI PHOTOREAL</small><h3 id="case-bionic-title">AI仿真人</h3></div></header>
+          <div class="case-track auto-rail">
+            <article class="case-card"><img data-src="assets/cases/real-ensemble.webp" alt="霍太太高调打脸了海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市</small><strong>霍太太高调打脸了</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/real-family.webp" alt="超市通异界海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻轻喜</small><strong>超市通异界</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/real-romance.webp" alt="我用一碗营养汤清算婚姻海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市情感</small><strong>我用一碗营养汤，清算婚姻</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-vow.webp" alt="The Dark Hero's Vow 海报" loading="lazy" decoding="async"><span class="case-status">50 EPISODES</span><span class="case-copy"><small>AI仿真人 / 奇幻</small><strong>The Dark Hero's Vow</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-fated.webp" alt="Bound to My Three Fated High Lords 海报" loading="lazy" decoding="async"><span class="case-status">ON AIR</span><span class="case-copy"><small>AI仿真人 / 爱情</small><strong>Bound to My Three Fated High Lords</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-alpha.webp" alt="The Alpha President's Ultimate Regret 海报" loading="lazy" decoding="async"><span class="case-status">COMPLETED</span><span class="case-copy"><small>AI仿真人 / 都市</small><strong>The Alpha President's Ultimate Regret</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-killers.webp" alt="My Ex-Killers Are Now My Slaves 海报" loading="lazy" decoding="async"><span class="case-status">COMPLETED</span><span class="case-copy"><small>AI仿真人 / 奇幻</small><strong>My Ex-Killers Are Now My Slaves</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-abyss.webp" alt="The Abyss King's Obsession 海报" loading="lazy" decoding="async"><span class="case-status">SCHEDULED</span><span class="case-copy"><small>AI仿真人 / 暗黑爱情</small><strong>The Abyss King's Obsession</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-01.webp" alt="The Enemy's Maid Contract 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 海外短剧</small><strong>The Enemy's Maid Contract</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-02.webp" alt="The Asylum's Discarded Queen 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 海外短剧</small><strong>The Asylum's Discarded Queen</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-03.webp" alt="Seven Years Hidden 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻爱情</small><strong>Seven Years Hidden</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-04.webp" alt="My Baby Daddy 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市爱情</small><strong>My Baby Daddy</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-05.webp" alt="Holy Domination 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻爱情</small><strong>Holy Domination</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-06.webp" alt="How to Tame Your Rival 项目页" loading="lazy" decoding="async"><span class="case-status">PROJECT PAGE</span><span class="case-copy"><small>AI仿真人 / 平台展示</small><strong>How to Tame Your Rival</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-07.webp" alt="The Dark Hero's Vow 上线页面" loading="lazy" decoding="async"><span class="case-status">ON AIR</span><span class="case-copy"><small>AI仿真人 / 平台上线</small><strong>The Dark Hero's Vow</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-08.webp" alt="The Dark Hero's Vow 数据页" loading="lazy" decoding="async"><span class="case-status">PLATFORM DATA</span><span class="case-copy"><small>AI仿真人 / 平台数据</small><strong>The Dark Hero's Vow</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-09.webp" alt="My Fiance Sold Me to the Tyrant 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻爱情</small><strong>My Fiance Sold Me to the Tyrant</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-10.webp" alt="Shattered Faith 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 复仇爱情</small><strong>Shattered Faith</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-11.webp" alt="海外 AI 短剧平台榜单" loading="lazy" decoding="async"><span class="case-status">PLATFORM DATA</span><span class="case-copy"><small>AI仿真人 / 平台数据</small><strong>海外短剧平台榜单</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-12.webp" alt="抖音短剧榜项目数据" loading="lazy" decoding="async"><span class="case-status">PLATFORM DATA</span><span class="case-copy"><small>AI仿真人 / 平台数据</small><strong>短剧热度榜</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-13.webp" alt="How to Tame Your Rival 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市爱情</small><strong>How to Tame Your Rival</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-14.webp" alt="The Abyss King's Obsession 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 暗黑爱情</small><strong>The Abyss King's Obsession</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-15.webp" alt="斩山兽 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 东方冒险</small><strong>斩山兽</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-16.webp" alt="Destroying High Society Before I Die 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市复仇</small><strong>Destroying High Society Before I Die</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-17.webp" alt="都重生了谁还娶白月光啊 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市情感</small><strong>都重生了，谁还娶白月光啊</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-18.webp" alt="Beg on Your Knees 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 豪门爱情</small><strong>Beg on Your Knees</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-19.webp" alt="I Hired My Nanny to Seduce My Husband 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市情感</small><strong>I Hired My Nanny to Seduce My Husband</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-20.webp" alt="The Abyss King's Obsession 竖版海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 暗黑爱情</small><strong>The Abyss King's Obsession</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-21.webp" alt="The Chronicle of Sickly Knight 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻冒险</small><strong>The Chronicle of Sickly Knight</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-22.webp" alt="He Stole My Dragon 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻爱情</small><strong>He Stole My Dragon, I Took His Crown</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-23.webp" alt="Mr. President 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻爱情</small><strong>Mr. President, Your Rejected Luna Was Pregnant</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-24.webp" alt="My Evil Sister Gave Me the King 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 宫廷爱情</small><strong>My Evil Sister Gave Me the King</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-25.webp" alt="My Ex Boss Ruined My Wedding 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 都市爱情</small><strong>My Ex Boss Ruined My Wedding</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-26.webp" alt="Taming the Monsters of the Nile 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 古代冒险</small><strong>Taming the Monsters of the Nile</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-27.webp" alt="Dumped and Dragon Eggs 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻家庭</small><strong>Dumped and Dragon Eggs</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-28.webp" alt="Chained to the Monster General 海报" loading="lazy" decoding="async"><span class="case-status">AI SERIES</span><span class="case-copy"><small>AI仿真人 / 奇幻爱情</small><strong>Chained to the Monster General</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-29.webp" alt="The Abyss King's Obsession 宣发海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 宣发物料</small><strong>The Abyss King's Obsession</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-30.webp" alt="The Abyss King's Obsession 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>The Abyss King's Obsession</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-31.webp" alt="Beg on Your Knees 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>Beg on Your Knees</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-32.webp" alt="Chained to the Monster General 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>Chained to the Monster General</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-33.webp" alt="Dumped and Dragon Eggs 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>Dumped and Dragon Eggs</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-34.webp" alt="Taming the Monsters of the Nile 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>Taming the Monsters of the Nile</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-35.webp" alt="My Ex Boss Ruined My Wedding 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>My Ex Boss Ruined My Wedding</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-36.webp" alt="My Evil Sister Gave Me the King 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>My Evil Sister Gave Me the King</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-37.webp" alt="Mr. President 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>Mr. President, Your Rejected Luna Was Pregnant</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/bionic-jingying-38.webp" alt="He Stole My Dragon 角色海报" loading="lazy" decoding="async"><span class="case-status">PROMO</span><span class="case-copy"><small>AI仿真人 / 角色海报</small><strong>He Stole My Dragon, I Took His Crown</strong></span></article>
+          </div>
+        </section>
+
+        <section class="case-lane reveal" aria-labelledby="case-animation-title">
+          <header><span>03</span><div><small>ANIMATION</small><h3 id="case-animation-title">2D / 3D 精品动漫</h3></div></header>
+          <div class="case-track auto-rail">
+            <article class="case-card"><img data-src="assets/cases/anime-master.webp" alt="洪荒截教大师兄海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>洪荒玄幻 / 动漫</small><strong>洪荒截教大师兄</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-tencent.webp" alt="七界第一仙海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>平台动漫 / 合作项目</small><strong>七界第一仙</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-chinese-online.webp" alt="为师从不藏私海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>平台漫剧 / 合作项目</small><strong>为师从不藏私</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-2d3.webp" alt="宠好闺蜜之狐妃驾到海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>古风爱情 / 动漫</small><strong>宠好闺蜜之狐妃驾到</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-2d6.webp" alt="民宿升级我的租客全是女神海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>都市奇遇 / 动漫</small><strong>民宿升级，我的租客全是女神</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-2d8.webp" alt="末世丧尸感染人类我感染丧尸海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>末世异能 / 动漫</small><strong>末世：丧尸感染人类，我感染丧尸</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-demon.webp" alt="镇魔千年海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>东方玄幻 / 动漫</small><strong>镇魔千年，归来物是人非</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-villain.webp" alt="气运之子快跑海报" loading="lazy" decoding="async"><span class="case-status">2D ANIME</span><span class="case-copy"><small>反派逆袭 / 动漫</small><strong>气运之子快跑，他是大反派</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-mecha.webp" alt="星际修仙海报" loading="lazy" decoding="async"><span class="case-status">3D HYBRID</span><span class="case-copy"><small>机甲修仙 / 动漫</small><strong>星际：我在修仙世界火力覆盖</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-cultivation.webp" alt="救徒变强海报" loading="lazy" decoding="async"><span class="case-status">SCHEDULED</span><span class="case-copy"><small>玄幻养成 / 动漫</small><strong>救徒变强：说好捡漏小可怜</strong></span></article>
+            <article class="case-card"><img data-src="assets/cases/anime-apocalypse.webp" alt="末世终焉大反派海报" loading="lazy" decoding="async"><span class="case-status">5000万+</span><span class="case-copy"><small>末世异能 / 动漫</small><strong>末世：终焉大反派</strong></span></article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section team" id="team" aria-labelledby="team-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow"><span></span> CREATIVE FORCE</p><h2 id="team-title">王牌之师</h2></div>
+        <p>制片、导演、编剧、美术与 AI 工程协同，构成导演中心制的复合型创作团队。</p>
+      </div>
+      <div class="team-toolbar reveal">
+        <div class="segmented" role="tablist" aria-label="团队分类">
+          <button class="active" role="tab" aria-selected="true" data-filter="all">全部</button>
+          <button role="tab" aria-selected="false" data-filter="producer">制片</button>
+          <button role="tab" aria-selected="false" data-filter="director">导演</button>
+          <button role="tab" aria-selected="false" data-filter="writer">编剧</button>
+          <button role="tab" aria-selected="false" data-filter="art">美术 / AI</button>
+          <button role="tab" aria-selected="false" data-filter="other">制作</button>
+        </div>
+      </div>
+      <div class="team-rail reveal" id="teamRail" tabindex="0" aria-label="团队成员列表"></div>
+    </section>
+
+    <section class="section universe" id="universe" aria-labelledby="universe-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow"><span></span> ORIGINAL UNIVERSE</p><h2 id="universe-title">故事，跨越万年</h2></div>
+        <p>从上古陶火、昆仑神门到信息文明，原创项目以不同类型共享一条关于文明、选择与守护的暗线。</p>
+      </div>
+
+      <div class="universe-map reveal">
+        <button class="project-feature" data-project="shanhaitu">
+          <img data-src="assets/projects/shanhaitu-overview.webp" alt="山海图系列IP概念视觉" loading="lazy" decoding="async">
+          <span class="project-overlay"></span>
+          <span class="project-code">DKU / 001</span>
+          <span class="project-copy"><small>国风神话科幻宇宙</small><strong>《山海图》系列 IP</strong><em>绝地天通 · 终极 · 黄金帐</em></span>
+          <i data-lucide="plus"></i>
+        </button>
+        <div class="project-stack">
+          <button class="project-tile" data-project="jueditian"><img data-src="assets/projects/jueditian-page16.webp" alt="绝地天通项目视觉" loading="lazy" decoding="async"><span><small>上古神话 / 奇幻冒险</small><strong>绝地天通</strong></span><i data-lucide="arrow-up-right"></i></button>
+          <button class="project-tile" data-project="terminal"><img data-src="assets/projects/terminal-hd.webp" alt="终极项目视觉" loading="lazy" decoding="async"><span><small>近未来科幻 / 无限流</small><strong>终极</strong></span><i data-lucide="arrow-up-right"></i></button>
+          <button class="project-tile" data-project="golden"><img data-src="assets/projects/golden-page31.webp" alt="黄金帐项目视觉" loading="lazy" decoding="async"><span><small>现代探险 / 古今双魂</small><strong>黄金帐</strong></span><i data-lucide="arrow-up-right"></i></button>
+        </div>
+        <div class="project-row">
+          <button class="project-mini" data-project="star"><img data-src="assets/projects/star.webp" alt="星途璀璨项目视觉" loading="lazy" decoding="async"><span class="project-mini-shade"></span><span class="mini-index">04</span><span class="mini-copy"><small>真人互动影像游戏</small><strong>星途璀璨</strong></span><i data-lucide="gamepad-2"></i></button>
+          <button class="project-mini" data-project="projection"><img data-src="assets/projects/projection-hd.webp" alt="投影项目视觉" loading="lazy" decoding="async"><span class="project-mini-shade"></span><span class="mini-index">05</span><span class="mini-copy"><small>国风赛博科幻</small><strong>投影</strong></span><i data-lucide="scan-line"></i></button>
+          <button class="project-mini" data-project="dongfang"><img data-src="assets/projects/dongfang.webp" alt="东方朔项目视觉" loading="lazy" decoding="async"><span class="project-mini-shade"></span><span class="mini-index">06</span><span class="mini-copy"><small>历史轻喜 / 弹幕互动</small><strong>东方朔</strong></span><i data-lucide="messages-square"></i></button>
+          <button class="project-mini" data-project="liaozhai"><img data-src="assets/projects/liaozhai.webp" alt="聊斋诡事录项目视觉" loading="lazy" decoding="async"><span class="project-mini-shade"></span><span class="mini-index">07</span><span class="mini-copy"><small>沉浸志异 / 狐族传说</small><strong>聊斋诡事录</strong></span><i data-lucide="venetian-mask"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact" aria-labelledby="contact-title">
+      <div class="contact-art"><img data-src="assets/brand/poster-wall.webp" alt="当康文化作品矩阵" loading="lazy" decoding="async"></div>
+      <div class="contact-copy reveal">
+        <p class="eyebrow"><span></span> CO-CREATE THE NEXT FRAME</p>
+        <h2 id="contact-title">让想象，触手可及</h2>
+        <p>面向平台、版权方、文旅机构与制作伙伴，提供原创开发、IP 改编、AI 影视创制与全链路资产交付。</p>
+        <button class="primary-button" id="contactButton"><span>开启合作</span><i data-lucide="send"></i></button>
+      </div>
+      <div class="contact-meta"><span>杭州当康文化传媒有限公司</span><span>CONTENT / TOURISM / TECHNOLOGY</span></div>
+    </section>
+  </main>
+
+  <dialog class="project-modal" id="projectModal" aria-labelledby="modalTitle">
+    <button class="modal-close icon-button" id="modalClose" aria-label="关闭项目详情" title="关闭"><i data-lucide="x"></i></button>
+    <div class="modal-visual" id="modalVisual"><img id="modalImage" alt="" loading="lazy" decoding="async"></div>
+    <div class="modal-content">
+      <p class="eyebrow"><span></span><span id="modalCode">DKU / 001</span></p>
+      <h2 id="modalTitle">山海图</h2>
+      <p class="modal-type" id="modalType"></p>
+      <p class="modal-summary" id="modalSummary"></p>
+      <dl class="modal-facts" aria-label="作品制作信息">
+        <div><dt>制作周期</dt><dd id="modalCycle"></dd></div>
+        <div><dt>出品方</dt><dd id="modalProducer"></dd></div>
+        <div><dt>播放平台</dt><dd id="modalPlatform"></dd></div>
+        <div><dt>作品热度</dt><dd id="modalHeat"></dd></div>
+      </dl>
+      <div class="modal-highlights" id="modalHighlights"></div>
+      <button class="primary-button" id="modalAction"><span>继续探索</span><i data-lucide="arrow-down"></i></button>
+    </div>
+  </dialog>
+
+  <dialog class="team-modal" id="teamModal" aria-labelledby="teamModalTitle">
+    <button class="modal-close icon-button" id="teamModalClose" aria-label="关闭成员详情" title="关闭"><i data-lucide="x"></i></button>
+    <div class="team-modal-visual" id="teamModalVisual"></div>
+    <div class="team-modal-content">
+      <p class="eyebrow"><span></span><span id="teamModalGroup">CREATIVE FORCE</span></p>
+      <h2 id="teamModalTitle"></h2>
+      <p class="team-modal-role" id="teamModalRole"></p>
+      <p class="team-modal-summary" id="teamModalSummary"></p>
+      <div class="team-modal-tags" id="teamModalTags"></div>
+    </div>
+  </dialog>
+
+  <dialog class="contact-modal" id="contactModal" aria-labelledby="contactModalTitle">
+    <button class="modal-close icon-button" id="contactClose" aria-label="关闭合作窗口" title="关闭"><i data-lucide="x"></i></button>
+    <div>
+      <p class="eyebrow"><span></span> BUSINESS INQUIRY</p>
+      <h2 id="contactModalTitle">合作共创</h2>
+      <p>请准备项目类型、内容体量、计划周期与目标平台，通过当康文化官方商务渠道提交合作资料。</p>
+      <div class="contact-options">
+        <span><i data-lucide="film"></i>AI 影视承制</span>
+        <span><i data-lucide="book-open"></i>IP 开发改编</span>
+        <span><i data-lucide="map-pinned"></i>文旅内容共创</span>
+      </div>
+      <button class="primary-button" id="contactConfirm"><span>已了解</span><i data-lucide="check"></i></button>
+    </div>
+  </dialog>
+</body>
+</html>
