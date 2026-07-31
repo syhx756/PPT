@@ -1,3 +1,10 @@
+import {
+  candidateViewportDistance,
+  normalizedViewportDistance,
+  preloadConcurrency,
+  rankImageCandidates
+} from "./assets/runtime/image-preload-policy.mjs?v=e34af59bc9d3";
+
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 if (window.location.hash) {
   history.replaceState(null, "", window.location.pathname + window.location.search);
@@ -15,7 +22,7 @@ const projects = {
     code: "DKU / 001",
     title: "《山海图》系列 IP",
     type: "国风神话 × 科幻 × 探险",
-    image: "assets/projects/shanhaitu-overview.webp?v=c6a313e7bfaf",
+    image: "assets/projects/shanhaitu-overview.webp?v=e34af59bc9d3",
     cycle: "单部3个月制作周期",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -27,7 +34,7 @@ const projects = {
     code: "DKU / 002",
     title: "《绝地天通》",
     type: "上古神话 / 奇幻冒险",
-    image: "assets/projects/jueditian-page16.webp?v=c6a313e7bfaf",
+    image: "assets/projects/jueditian-page16.webp?v=e34af59bc9d3",
     cycle: "先导片阶段",
     producer: "当康文化",
     platform: "院线 / 国际电影节",
@@ -39,7 +46,7 @@ const projects = {
     code: "DKU / 003",
     title: "《终极》",
     type: "近未来科幻 / 无限流 / 惊悚冒险",
-    image: "assets/projects/terminal-hd.webp?v=c6a313e7bfaf",
+    image: "assets/projects/terminal-hd.webp?v=e34af59bc9d3",
     cycle: "概念开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -51,7 +58,7 @@ const projects = {
     code: "DKU / 004",
     title: "《黄金帐》",
     type: "现代探险 / 历史悬疑 / 古今双魂",
-    image: "assets/projects/golden-page31.webp?v=c6a313e7bfaf",
+    image: "assets/projects/golden-page31.webp?v=e34af59bc9d3",
     cycle: "世界观开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -63,7 +70,7 @@ const projects = {
     code: "DKI / 005",
     title: "《星途璀璨》",
     type: "真人互动影像 / 电影级分支叙事",
-    image: "assets/projects/star.webp?v=c6a313e7bfaf",
+    image: "assets/projects/star.webp?v=e34af59bc9d3",
     cycle: "互动剧开发阶段",
     producer: "当康文化",
     platform: "互动影游平台",
@@ -75,7 +82,7 @@ const projects = {
     code: "DKU / 006",
     title: "《投影》",
     type: "国风赛博 / 轻喜科幻",
-    image: "assets/projects/projection-hd.webp?v=c6a313e7bfaf",
+    image: "assets/projects/projection-hd.webp?v=e34af59bc9d3",
     cycle: "剧本开发阶段",
     producer: "当康文化",
     platform: "流媒体 / 文旅场景",
@@ -87,7 +94,7 @@ const projects = {
     code: "DKS / 007",
     title: "《东方朔》",
     type: "历史轻喜 / 弹幕互动",
-    image: "assets/projects/dongfang.webp?v=c6a313e7bfaf",
+    image: "assets/projects/dongfang.webp?v=e34af59bc9d3",
     cycle: "方案开发阶段",
     producer: "当康文化",
     platform: "短剧平台 / 文旅场景",
@@ -99,7 +106,7 @@ const projects = {
     code: "DKI / 008",
     title: "《聊斋诡事录》",
     type: "全息沉浸 / 狐族志异 / 情感冒险",
-    image: "assets/projects/liaozhai.webp?v=c6a313e7bfaf",
+    image: "assets/projects/liaozhai.webp?v=e34af59bc9d3",
     cycle: "互动内容开发阶段",
     producer: "当康文化",
     platform: "沉浸娱乐 / 互动影游",
@@ -132,6 +139,7 @@ const team = [
   { name: "舒连宝", group: "art", role: "置景组长", detail: "从业25年+，擅长大型古装与奇幻场景的实景搭设", photo: "shulianbao" },
   { name: "袁天琪", group: "art", role: "概念设计师", detail: "深耕电影、游戏概念设计与气氛图绘制，专注国风视觉开发", photo: "yuantianqi" },
   { name: "苏迪克", group: "art", role: "AI视觉技术", detail: "专注AIGC在影视美术、场景生成与动画辅助领域的落地应用", photo: "sudike" },
+  { name: "王凯", group: "director", role: "摄影指导 / 导演 / 制片人", detail: "长期活跃于浙江影视制作一线，兼具摄影指导、导演与制片视角，擅长全流程统筹和商业影像创作", photo: "wangkai" },
   { name: "熊子莹", group: "other", role: "编导", detail: "主导文旅实景项目及大型活动，具备从统筹到落地的全链条能力", photo: "xiongziying" },
   { name: "白慧艳", group: "other", role: "剪辑师", detail: "3年信息流广告与短视频剪辑经验，熟练使用各类AI剪辑工具", photo: "baihuiyan" },
   { name: "张诗坤", group: "other", role: "摄影师", detail: "3年拍摄剪辑经验，擅长画面构图、现场布光与光影塑造", photo: "zhangshikun" }
@@ -177,25 +185,217 @@ function refreshIcons() {
   else window.setTimeout(refreshIcons, 60);
 }
 
-const loadDeferredImage = image => {
-  if (!image.dataset.src) return;
-  image.src = image.dataset.src;
-  image.removeAttribute("data-src");
-};
+const imagePreloadRegistry = new Map();
+const activePreloadImages = new Map();
+let imagePreloadOrder = 0;
+let activeImageLoads = 0;
+let imageWorkQueued = false;
+let imageIdleHandle = 0;
+let imageIdleUsesCallback = false;
+let imagePreloadObserver = null;
+let imageResizeTimer = 0;
+let pageLoadComplete = document.readyState === "complete";
 
-const lazyImageObserver = "IntersectionObserver" in window
-  ? new IntersectionObserver(entries => entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      loadDeferredImage(entry.target);
-      lazyImageObserver.unobserve(entry.target);
-    }), { rootMargin: "240px 0px" })
-  : null;
+const currentViewport = () => ({
+  width: Math.max(window.innerWidth, 1),
+  height: Math.max(window.innerHeight, 1)
+});
+
+const candidateKey = source => new URL(source, document.baseURI).href;
+
+function setElementSource(image, candidate, priority) {
+  image.fetchPriority = priority;
+  image.src = candidate.source;
+  image.removeAttribute("data-src");
+}
+
+function registerImageCandidate(source, { image = null, anchor = image } = {}) {
+  if (!source) return null;
+  const key = candidateKey(source);
+  let candidate = imagePreloadRegistry.get(key);
+  if (!candidate) {
+    candidate = {
+      url: key,
+      source,
+      order: imagePreloadOrder++,
+      state: "pending",
+      anchors: new Set(),
+      elements: new Set()
+    };
+    imagePreloadRegistry.set(key, candidate);
+  }
+
+  if (anchor) candidate.anchors.add(anchor);
+  if (image) {
+    candidate.elements.add(image);
+    image.dataset.preloadKey = key;
+    if (candidate.state === "loaded" || candidate.state === "error") {
+      setElementSource(image, candidate, "low");
+    } else {
+      imagePreloadObserver?.observe(image);
+    }
+  }
+  return candidate;
+}
+
+function registerDeferredImages(root = document) {
+  root.querySelectorAll("img[data-src]").forEach(image => {
+    registerImageCandidate(image.dataset.src, { image });
+  });
+  scheduleImageWork();
+}
+
+function registerTeamOriginals(root = document) {
+  root.querySelectorAll(".team-card[data-member-index]").forEach(card => {
+    const member = team[Number(card.dataset.memberIndex)];
+    if (member?.photo) registerImageCandidate(`assets/team/${member.photo}.webp?v=e34af59bc9d3`, { anchor: card });
+  });
+  scheduleImageWork();
+}
+
+function registerProjectOriginals() {
+  for (const [key, project] of Object.entries(projects)) {
+    const anchors = document.querySelectorAll(`[data-project="${key}"]`);
+    if (anchors.length) anchors.forEach(anchor => registerImageCandidate(project.image, { anchor }));
+    else registerImageCandidate(project.image);
+  }
+  scheduleImageWork();
+}
+
+function rankedImageWork(states) {
+  const viewport = currentViewport();
+  return rankImageCandidates(
+    [...imagePreloadRegistry.values()].filter(candidate => states.has(candidate.state)),
+    viewport
+  ).map(candidate => ({
+    candidate,
+    distance: candidateViewportDistance(candidate, viewport)
+  }));
+}
+
+function loadImageCandidate(candidate, priority) {
+  if (candidate.state !== "pending") return;
+  candidate.state = "loading";
+  activeImageLoads += 1;
+
+  for (const image of candidate.elements) {
+    if (image.isConnected) setElementSource(image, candidate, priority);
+  }
+
+  const loader = new Image();
+  loader.fetchPriority = priority;
+  loader.decoding = "async";
+  activePreloadImages.set(candidate.url, loader);
+
+  const finish = event => {
+    if (candidate.state !== "loading") return;
+    candidate.state = event.type === "load" ? "loaded" : "error";
+    activeImageLoads = Math.max(activeImageLoads - 1, 0);
+    activePreloadImages.delete(candidate.url);
+    scheduleImageWork();
+  };
+  loader.addEventListener("load", finish, { once: true });
+  loader.addEventListener("error", finish, { once: true });
+  loader.src = candidate.source;
+}
+
+function cancelIdleImageWork() {
+  if (!imageIdleHandle) return;
+  if (imageIdleUsesCallback && "cancelIdleCallback" in window) window.cancelIdleCallback(imageIdleHandle);
+  else window.clearTimeout(imageIdleHandle);
+  imageIdleHandle = 0;
+}
+
+function runIdleImageWork(deadline = null) {
+  imageIdleHandle = 0;
+  const unfinished = rankedImageWork(new Set(["pending", "loading"]));
+  if (unfinished.some(({ distance }) => distance <= 1)) {
+    scheduleImageWork();
+    return;
+  }
+
+  const concurrency = preloadConcurrency(navigator.connection);
+  const pending = unfinished.filter(({ candidate }) => candidate.state === "pending");
+  let started = 0;
+  while (activeImageLoads < concurrency && pending.length) {
+    if (started > 0 && deadline && !deadline.didTimeout && deadline.timeRemaining() < 4) break;
+    loadImageCandidate(pending.shift().candidate, "low");
+    started += 1;
+  }
+}
+
+function scheduleIdleImageWork() {
+  if (imageIdleHandle || !pageLoadComplete) return;
+  if ("requestIdleCallback" in window) {
+    imageIdleUsesCallback = true;
+    imageIdleHandle = window.requestIdleCallback(runIdleImageWork, { timeout: 1200 });
+  } else {
+    imageIdleUsesCallback = false;
+    imageIdleHandle = window.setTimeout(() => runIdleImageWork(), 120);
+  }
+}
+
+function runImmediateImageWork() {
+  imageWorkQueued = false;
+  const unfinished = rankedImageWork(new Set(["pending", "loading"]));
+  const nearby = unfinished.filter(({ distance }) => distance <= 1);
+
+  if (nearby.length) {
+    cancelIdleImageWork();
+    const concurrency = preloadConcurrency(navigator.connection);
+    const pending = nearby.filter(({ candidate }) => candidate.state === "pending");
+    while (activeImageLoads < concurrency && pending.length) {
+      loadImageCandidate(pending.shift().candidate, "high");
+    }
+    return;
+  }
+
+  if (unfinished.some(({ candidate }) => candidate.state === "pending")) scheduleIdleImageWork();
+}
+
+function scheduleImageWork() {
+  if (imageWorkQueued) return;
+  imageWorkQueued = true;
+  const enqueue = window.queueMicrotask || (callback => Promise.resolve().then(callback));
+  enqueue(runImmediateImageWork);
+}
+
+function rebuildImagePreloadObserver() {
+  imagePreloadObserver?.disconnect();
+  imagePreloadObserver = "IntersectionObserver" in window
+    ? new IntersectionObserver(entries => {
+        const viewport = currentViewport();
+        if (entries.some(entry => entry.isIntersecting
+          && normalizedViewportDistance(entry.boundingClientRect, viewport) <= 1)) scheduleImageWork();
+      }, { rootMargin: `${window.innerHeight}px ${window.innerWidth}px` })
+    : null;
+
+  if (imagePreloadObserver) {
+    for (const candidate of imagePreloadRegistry.values()) {
+      if (candidate.state !== "pending") continue;
+      for (const image of candidate.elements) {
+        if (image.isConnected && image.dataset.src) imagePreloadObserver.observe(image);
+      }
+    }
+  }
+  scheduleImageWork();
+}
 
 function observeDeferredImages(root = document) {
-  root.querySelectorAll("img[data-src]").forEach(image => {
-    if (lazyImageObserver) lazyImageObserver.observe(image);
-    else loadDeferredImage(image);
-  });
+  registerDeferredImages(root);
+}
+
+rebuildImagePreloadObserver();
+window.addEventListener("resize", () => {
+  window.clearTimeout(imageResizeTimer);
+  imageResizeTimer = window.setTimeout(rebuildImagePreloadObserver, 120);
+}, { passive: true });
+if (navigator.connection?.addEventListener) navigator.connection.addEventListener("change", scheduleImageWork);
+if (!pageLoadComplete) {
+  window.addEventListener("load", () => {
+    pageLoadComplete = true;
+    scheduleImageWork();
+  }, { once: true });
 }
 
 function openProject(key, fromScene = false) {
@@ -234,7 +434,7 @@ function openTeam(index) {
   teamModalVisual.classList.toggle("no-photo", !member.photo);
   teamModalVisual.style.removeProperty("--team-photo-ratio");
   teamModalVisual.innerHTML = member.photo
-    ? `<img src="assets/team/${member.photo}.webp?v=c6a313e7bfaf" alt="${member.name}团队资料">`
+    ? `<img src="assets/team/${member.photo}.webp?v=e34af59bc9d3" alt="${member.name}团队资料">`
     : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong><small>${groupLabels[member.group]}</small>`;
   if (member.photo) {
     const image = teamModalVisual.querySelector("img");
@@ -260,7 +460,7 @@ function renderTeam(filter = "all") {
   rail.innerHTML = entries.map((member, index) => {
     const memberIndex = team.indexOf(member);
     const visual = member.photo
-          ? `<img data-src="assets/team/thumbs/${member.photo}.webp?v=c6a313e7bfaf" alt="${member.name}团队资料" loading="lazy" decoding="async">`
+          ? `<img data-src="assets/team/thumbs/${member.photo}.webp?v=e34af59bc9d3" alt="${member.name}团队资料" loading="lazy" decoding="async">`
       : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong>`;
     return `<button class="team-card" type="button" data-member-index="${memberIndex}" aria-label="查看${member.name}详情">
       <span class="team-photo ${member.photo ? "" : "no-photo"}">${visual}<span class="team-role-index">${String(index + 1).padStart(2, "0")}</span></span>
@@ -268,6 +468,7 @@ function renderTeam(filter = "all") {
     </button>`;
   }).join("");
   observeDeferredImages(rail);
+  registerTeamOriginals(rail);
   rail.scrollTo({ left: 0, behavior: "auto" });
   window.setTimeout(refreshIcons, 0);
 }
@@ -290,9 +491,15 @@ function initAutoRail(rail, cardSelector) {
   rail.addEventListener("pointermove", event => {
     if (event.pointerId === dragPointerId) {
       const distance = event.clientX - dragStartX;
-      if (Math.abs(distance) > 5) dragMoved = true;
-      if (dragMoved) event.preventDefault();
-      rail.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+      if (!dragMoved && Math.abs(distance) > 10) {
+        dragMoved = true;
+        rail.classList.add("is-dragging");
+        rail.setPointerCapture(event.pointerId);
+      }
+      if (dragMoved) {
+        event.preventDefault();
+        rail.scrollLeft = dragStartScroll - distance;
+      }
       return;
     }
     const bounds = rail.getBoundingClientRect();
@@ -327,8 +534,6 @@ function initAutoRail(rail, cardSelector) {
     hoveredCard?.classList.remove("is-hovered");
     hoveredCard = null;
     rail.classList.remove("card-hovering");
-    rail.classList.add("is-dragging");
-    rail.setPointerCapture(event.pointerId);
   });
   const finishMouseDrag = event => {
     if (event.pointerId !== dragPointerId) return;
@@ -358,7 +563,8 @@ function initAutoRail(rail, cardSelector) {
     suppressClick = false;
   }, true);
   window.addEventListener("pointerup", event => {
-    if (event.pointerType !== "mouse") interacting = false;
+    if (event.pointerType === "mouse") finishMouseDrag(event);
+    else interacting = false;
   });
 
   const animateRail = now => {
@@ -397,6 +603,7 @@ function initUI() {
   refreshIcons();
   observeDeferredImages();
   renderTeam();
+  registerProjectOriginals();
 
   const clock = document.querySelector("#clock");
   const updateClock = () => {
