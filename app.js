@@ -1,9 +1,21 @@
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (window.location.hash) {
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+}
+window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+window.addEventListener("pageshow", () => {
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+});
+
 const projects = {
   shanhaitu: {
     code: "DKU / 001",
     title: "《山海图》系列 IP",
     type: "国风神话 × 科幻 × 探险",
-    image: "assets/projects/shanhaitu-overview.webp",
+    image: "assets/projects/shanhaitu-overview.webp?v=ea55de558c66",
     cycle: "单部3个月制作周期",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -15,7 +27,7 @@ const projects = {
     code: "DKU / 002",
     title: "《绝地天通》",
     type: "上古神话 / 奇幻冒险",
-    image: "assets/projects/jueditian-page16.webp",
+    image: "assets/projects/jueditian-page16.webp?v=ea55de558c66",
     cycle: "先导片阶段",
     producer: "当康文化",
     platform: "院线 / 国际电影节",
@@ -27,7 +39,7 @@ const projects = {
     code: "DKU / 003",
     title: "《终极》",
     type: "近未来科幻 / 无限流 / 惊悚冒险",
-    image: "assets/projects/terminal-hd.webp",
+    image: "assets/projects/terminal-hd.webp?v=ea55de558c66",
     cycle: "概念开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -39,7 +51,7 @@ const projects = {
     code: "DKU / 004",
     title: "《黄金帐》",
     type: "现代探险 / 历史悬疑 / 古今双魂",
-    image: "assets/projects/golden-page31.webp",
+    image: "assets/projects/golden-page31.webp?v=ea55de558c66",
     cycle: "世界观开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -51,7 +63,7 @@ const projects = {
     code: "DKI / 005",
     title: "《星途璀璨》",
     type: "真人互动影像 / 电影级分支叙事",
-    image: "assets/projects/star.webp",
+    image: "assets/projects/star.webp?v=ea55de558c66",
     cycle: "互动剧开发阶段",
     producer: "当康文化",
     platform: "互动影游平台",
@@ -63,7 +75,7 @@ const projects = {
     code: "DKU / 006",
     title: "《投影》",
     type: "国风赛博 / 轻喜科幻",
-    image: "assets/projects/projection-hd.webp",
+    image: "assets/projects/projection-hd.webp?v=ea55de558c66",
     cycle: "剧本开发阶段",
     producer: "当康文化",
     platform: "流媒体 / 文旅场景",
@@ -75,7 +87,7 @@ const projects = {
     code: "DKS / 007",
     title: "《东方朔》",
     type: "历史轻喜 / 弹幕互动",
-    image: "assets/projects/dongfang.webp",
+    image: "assets/projects/dongfang.webp?v=ea55de558c66",
     cycle: "方案开发阶段",
     producer: "当康文化",
     platform: "短剧平台 / 文旅场景",
@@ -87,7 +99,7 @@ const projects = {
     code: "DKI / 008",
     title: "《聊斋诡事录》",
     type: "全息沉浸 / 狐族志异 / 情感冒险",
-    image: "assets/projects/liaozhai.webp",
+    image: "assets/projects/liaozhai.webp?v=ea55de558c66",
     cycle: "互动内容开发阶段",
     producer: "当康文化",
     platform: "沉浸娱乐 / 互动影游",
@@ -222,7 +234,7 @@ function openTeam(index) {
   teamModalVisual.classList.toggle("no-photo", !member.photo);
   teamModalVisual.style.removeProperty("--team-photo-ratio");
   teamModalVisual.innerHTML = member.photo
-    ? `<img src="assets/team/${member.photo}.webp" alt="${member.name}团队资料">`
+    ? `<img src="assets/team/${member.photo}.webp?v=ea55de558c66" alt="${member.name}团队资料">`
     : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong><small>${groupLabels[member.group]}</small>`;
   if (member.photo) {
     const image = teamModalVisual.querySelector("img");
@@ -248,7 +260,7 @@ function renderTeam(filter = "all") {
   rail.innerHTML = entries.map((member, index) => {
     const memberIndex = team.indexOf(member);
     const visual = member.photo
-      ? `<img data-src="assets/team/${member.photo}.webp" alt="${member.name}团队资料" loading="lazy" decoding="async">`
+          ? `<img data-src="assets/team/thumbs/${member.photo}.webp?v=ea55de558c66" alt="${member.name}团队资料" loading="lazy" decoding="async">`
       : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong>`;
     return `<button class="team-card" type="button" data-member-index="${memberIndex}" aria-label="查看${member.name}详情">
       <span class="team-photo ${member.photo ? "" : "no-photo"}">${visual}<span class="team-role-index">${String(index + 1).padStart(2, "0")}</span></span>
@@ -266,11 +278,23 @@ function initAutoRail(rail, cardSelector) {
   let visible = false;
   let interacting = false;
   let hoveredCard = null;
+  let dragPointerId = null;
+  let dragStartX = 0;
+  let dragStartScroll = 0;
+  let dragMoved = false;
+  let suppressClick = false;
   let lastFrame = 0;
   let animationFrame = 0;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   rail.addEventListener("pointermove", event => {
+    if (event.pointerId === dragPointerId) {
+      const distance = event.clientX - dragStartX;
+      if (Math.abs(distance) > 5) dragMoved = true;
+      if (dragMoved) event.preventDefault();
+      rail.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+      return;
+    }
     const bounds = rail.getBoundingClientRect();
     const ratio = (event.clientX - bounds.left) / Math.max(bounds.width, 1);
     const nextHoveredCard = event.target.closest(cardSelector);
@@ -287,13 +311,55 @@ function initAutoRail(rail, cardSelector) {
   });
   rail.addEventListener("pointerleave", () => {
     edgeSpeed = 0;
-    interacting = false;
+    if (dragPointerId === null) interacting = false;
     hoveredCard?.classList.remove("is-hovered");
     hoveredCard = null;
     rail.classList.remove("card-hovering");
   });
-  rail.addEventListener("pointerdown", () => { interacting = true; });
-  window.addEventListener("pointerup", () => { interacting = false; });
+  rail.addEventListener("pointerdown", event => {
+    interacting = true;
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
+    dragPointerId = event.pointerId;
+    dragStartX = event.clientX;
+    dragStartScroll = rail.scrollLeft;
+    dragMoved = false;
+    edgeSpeed = 0;
+    hoveredCard?.classList.remove("is-hovered");
+    hoveredCard = null;
+    rail.classList.remove("card-hovering");
+    rail.classList.add("is-dragging");
+    rail.setPointerCapture(event.pointerId);
+  });
+  const finishMouseDrag = event => {
+    if (event.pointerId !== dragPointerId) return;
+    const pointerId = dragPointerId;
+    dragPointerId = null;
+    interacting = false;
+    rail.classList.remove("is-dragging");
+    if (rail.hasPointerCapture(pointerId)) rail.releasePointerCapture(pointerId);
+    if (dragMoved) {
+      suppressClick = true;
+      window.setTimeout(() => { suppressClick = false; }, 0);
+    }
+  };
+  rail.addEventListener("pointerup", event => {
+    if (event.pointerType === "mouse") finishMouseDrag(event);
+    else interacting = false;
+  });
+  rail.addEventListener("pointercancel", event => {
+    if (event.pointerType === "mouse") finishMouseDrag(event);
+    else interacting = false;
+  });
+  rail.addEventListener("lostpointercapture", event => finishMouseDrag(event));
+  rail.addEventListener("click", event => {
+    if (!suppressClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressClick = false;
+  }, true);
+  window.addEventListener("pointerup", event => {
+    if (event.pointerType !== "mouse") interacting = false;
+  });
 
   const animateRail = now => {
     const frameScale = Math.min((now - lastFrame) / 16.67, 2.4);
@@ -353,17 +419,32 @@ function initUI() {
 
   heroCube.addEventListener("click", () => scrollToSection("#cases"));
   cubeDock.addEventListener("click", () => scrollToSection("#home"));
-  heroCube.addEventListener("pointermove", event => {
-    const bounds = heroCube.getBoundingClientRect();
+  home.addEventListener("pointermove", event => {
+    const homeBounds = home.getBoundingClientRect();
+    const cubeBounds = heroCube.getBoundingClientRect();
+    home.classList.add("is-lit");
     heroCube.classList.add("is-lit");
-    heroCube.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
-    heroCube.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
+    home.style.setProperty("--pointer-x", `${event.clientX - homeBounds.left}px`);
+    home.style.setProperty("--pointer-y", `${event.clientY - homeBounds.top}px`);
+    heroCube.style.setProperty("--pointer-x", `${event.clientX - cubeBounds.left}px`);
+    heroCube.style.setProperty("--pointer-y", `${event.clientY - cubeBounds.top}px`);
   });
-  heroCube.addEventListener("pointerleave", () => {
+  const clearHeroLight = () => {
+    home.classList.remove("is-lit");
     heroCube.classList.remove("is-lit");
+    home.style.setProperty("--pointer-x", "58%");
+    home.style.setProperty("--pointer-y", "46%");
     heroCube.style.setProperty("--pointer-x", "52%");
     heroCube.style.setProperty("--pointer-y", "46%");
+  };
+  home.addEventListener("pointerleave", clearHeroLight);
+  home.addEventListener("pointerout", event => {
+    if (event.relatedTarget && home.contains(event.relatedTarget)) return;
+    clearHeroLight();
   });
+  document.addEventListener("pointermove", event => {
+    if (!home.contains(event.target)) clearHeroLight();
+  }, { passive: true });
   const cubeDockObserver = new IntersectionObserver(entries => {
     const homeVisible = entries.some(entry => entry.isIntersecting);
     cubeDock.classList.toggle("is-visible", !homeVisible);
