@@ -3,7 +3,7 @@ import {
   normalizedViewportDistance,
   preloadConcurrency,
   rankImageCandidates
-} from "./assets/runtime/image-preload-policy.mjs?v=d3c0d4856cbc";
+} from "./assets/runtime/image-preload-policy.mjs?v=19137f7c4dc9";
 
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 if (window.location.hash) {
@@ -22,7 +22,7 @@ const projects = {
     code: "DKU / 001",
     title: "《山海图》系列 IP",
     type: "国风神话 × 科幻 × 探险",
-    image: "assets/projects/shanhaitu-overview.webp?v=d3c0d4856cbc",
+    image: "assets/projects/shanhaitu-overview.webp?v=19137f7c4dc9",
     cycle: "单部3个月制作周期",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -34,7 +34,7 @@ const projects = {
     code: "DKU / 002",
     title: "《绝地天通》",
     type: "上古神话 / 奇幻冒险",
-    image: "assets/projects/jueditian-page16.webp?v=d3c0d4856cbc",
+    image: "assets/projects/jueditian-page16.webp?v=19137f7c4dc9",
     cycle: "先导片阶段",
     producer: "当康文化",
     platform: "院线 / 国际电影节",
@@ -46,7 +46,7 @@ const projects = {
     code: "DKU / 003",
     title: "《终极》",
     type: "近未来科幻 / 无限流 / 惊悚冒险",
-    image: "assets/projects/terminal-hd.webp?v=d3c0d4856cbc",
+    image: "assets/projects/terminal-hd.webp?v=19137f7c4dc9",
     cycle: "概念开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -58,7 +58,7 @@ const projects = {
     code: "DKU / 004",
     title: "《黄金帐》",
     type: "现代探险 / 历史悬疑 / 古今双魂",
-    image: "assets/projects/golden-page31.webp?v=d3c0d4856cbc",
+    image: "assets/projects/golden-page31.webp?v=19137f7c4dc9",
     cycle: "世界观开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -70,7 +70,7 @@ const projects = {
     code: "DKI / 005",
     title: "《星途璀璨》",
     type: "真人互动影像 / 电影级分支叙事",
-    image: "assets/projects/star.webp?v=d3c0d4856cbc",
+    image: "assets/projects/star.webp?v=19137f7c4dc9",
     cycle: "互动剧开发阶段",
     producer: "当康文化",
     platform: "互动影游平台",
@@ -82,7 +82,7 @@ const projects = {
     code: "DKU / 006",
     title: "《投影》",
     type: "国风赛博 / 轻喜科幻",
-    image: "assets/projects/projection-hd.webp?v=d3c0d4856cbc",
+    image: "assets/projects/projection-hd.webp?v=19137f7c4dc9",
     cycle: "剧本开发阶段",
     producer: "当康文化",
     platform: "流媒体 / 文旅场景",
@@ -94,7 +94,7 @@ const projects = {
     code: "DKS / 007",
     title: "《东方朔》",
     type: "历史轻喜 / 弹幕互动",
-    image: "assets/projects/dongfang.webp?v=d3c0d4856cbc",
+    image: "assets/projects/dongfang.webp?v=19137f7c4dc9",
     cycle: "方案开发阶段",
     producer: "当康文化",
     platform: "短剧平台 / 文旅场景",
@@ -106,7 +106,7 @@ const projects = {
     code: "DKI / 008",
     title: "《聊斋诡事录》",
     type: "全息沉浸 / 狐族志异 / 情感冒险",
-    image: "assets/projects/liaozhai.webp?v=d3c0d4856cbc",
+    image: "assets/projects/liaozhai.webp?v=19137f7c4dc9",
     cycle: "互动内容开发阶段",
     producer: "当康文化",
     platform: "沉浸娱乐 / 互动影游",
@@ -248,7 +248,7 @@ function registerDeferredImages(root = document) {
 function registerTeamOriginals(root = document) {
   root.querySelectorAll(".team-card[data-member-index]").forEach(card => {
     const member = team[Number(card.dataset.memberIndex)];
-    if (member?.photo) registerImageCandidate(`assets/team/${member.photo}.webp?v=d3c0d4856cbc`, { anchor: card });
+    if (member?.photo) registerImageCandidate(`assets/team/${member.photo}.webp?v=19137f7c4dc9`, { anchor: card });
   });
   scheduleImageWork();
 }
@@ -434,7 +434,7 @@ function openTeam(index) {
   teamModalVisual.classList.toggle("no-photo", !member.photo);
   teamModalVisual.style.removeProperty("--team-photo-ratio");
   teamModalVisual.innerHTML = member.photo
-    ? `<img src="assets/team/${member.photo}.webp?v=d3c0d4856cbc" alt="${member.name}团队资料">`
+    ? `<img src="assets/team/${member.photo}.webp?v=19137f7c4dc9" alt="${member.name}团队资料">`
     : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong><small>${groupLabels[member.group]}</small>`;
   if (member.photo) {
     const image = teamModalVisual.querySelector("img");
@@ -460,7 +460,7 @@ function renderTeam(filter = "all") {
   rail.innerHTML = entries.map((member, index) => {
     const memberIndex = team.indexOf(member);
     const visual = member.photo
-          ? `<img data-src="assets/team/thumbs/${member.photo}.webp?v=d3c0d4856cbc" alt="${member.name}团队资料" loading="lazy" decoding="async">`
+          ? `<img data-src="assets/team/thumbs/${member.photo}.webp?v=19137f7c4dc9" alt="${member.name}团队资料" loading="lazy" decoding="async">`
       : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong>`;
     return `<button class="team-card" type="button" data-member-index="${memberIndex}" aria-label="查看${member.name}详情">
       <span class="team-photo ${member.photo ? "" : "no-photo"}">${visual}<span class="team-role-index">${String(index + 1).padStart(2, "0")}</span></span>
