@@ -3,7 +3,7 @@ import {
   normalizedViewportDistance,
   preloadConcurrency,
   rankImageCandidates
-} from "./assets/runtime/image-preload-policy.mjs?v=339df4ded0ac";
+} from "./assets/runtime/image-preload-policy.mjs?v=b5a8d5f49abc";
 
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 if (window.location.hash) {
@@ -22,7 +22,7 @@ const projects = {
     code: "DKU / 001",
     title: "《山海图》系列 IP",
     type: "国风神话 × 科幻 × 探险",
-    image: "assets/projects/shanhaitu-overview.webp?v=339df4ded0ac",
+    image: "assets/projects/shanhaitu-overview.webp?v=b5a8d5f49abc",
     cycle: "单部3个月制作周期",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -34,7 +34,7 @@ const projects = {
     code: "DKU / 002",
     title: "《绝地天通》",
     type: "上古神话 / 奇幻冒险",
-    image: "assets/projects/jueditian-page16.webp?v=339df4ded0ac",
+    image: "assets/projects/jueditian-page16.webp?v=b5a8d5f49abc",
     cycle: "先导片阶段",
     producer: "当康文化",
     platform: "院线 / 国际电影节",
@@ -46,7 +46,7 @@ const projects = {
     code: "DKU / 003",
     title: "《终极》",
     type: "近未来科幻 / 无限流 / 惊悚冒险",
-    image: "assets/projects/terminal-hd.webp?v=339df4ded0ac",
+    image: "assets/projects/terminal-hd.webp?v=b5a8d5f49abc",
     cycle: "概念开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -58,7 +58,7 @@ const projects = {
     code: "DKU / 004",
     title: "《黄金帐》",
     type: "现代探险 / 历史悬疑 / 古今双魂",
-    image: "assets/projects/golden-page31.webp?v=339df4ded0ac",
+    image: "assets/projects/golden-page31.webp?v=b5a8d5f49abc",
     cycle: "世界观开发阶段",
     producer: "当康文化",
     platform: "院线 / 流媒体",
@@ -70,7 +70,7 @@ const projects = {
     code: "DKI / 005",
     title: "《星途璀璨》",
     type: "真人互动影像 / 电影级分支叙事",
-    image: "assets/projects/star.webp?v=339df4ded0ac",
+    image: "assets/projects/star.webp?v=b5a8d5f49abc",
     cycle: "互动剧开发阶段",
     producer: "当康文化",
     platform: "互动影游平台",
@@ -82,7 +82,7 @@ const projects = {
     code: "DKU / 006",
     title: "《投影》",
     type: "国风赛博 / 轻喜科幻",
-    image: "assets/projects/projection-hd.webp?v=339df4ded0ac",
+    image: "assets/projects/projection-hd.webp?v=b5a8d5f49abc",
     cycle: "剧本开发阶段",
     producer: "当康文化",
     platform: "流媒体 / 文旅场景",
@@ -94,7 +94,7 @@ const projects = {
     code: "DKS / 007",
     title: "《东方朔》",
     type: "历史轻喜 / 弹幕互动",
-    image: "assets/projects/dongfang.webp?v=339df4ded0ac",
+    image: "assets/projects/dongfang.webp?v=b5a8d5f49abc",
     cycle: "方案开发阶段",
     producer: "当康文化",
     platform: "短剧平台 / 文旅场景",
@@ -106,7 +106,7 @@ const projects = {
     code: "DKI / 008",
     title: "《聊斋诡事录》",
     type: "全息沉浸 / 狐族志异 / 情感冒险",
-    image: "assets/projects/liaozhai.webp?v=339df4ded0ac",
+    image: "assets/projects/liaozhai.webp?v=b5a8d5f49abc",
     cycle: "互动内容开发阶段",
     producer: "当康文化",
     platform: "沉浸娱乐 / 互动影游",
@@ -120,6 +120,7 @@ const team = [
   { name: "胡洪霜", group: "producer", role: "制片人", detail: "操盘多部S级微短剧及网剧，具备丰富的一线拍片与商务对接经验", photo: "huhongshuang" },
   { name: "胡亚绮", group: "producer", role: "制片人", detail: "14年影视投资与制片经验，深刻洞察观众喜好与商业回报", photo: "huyiqi" },
   { name: "董晓晶", group: "producer", role: "制片人", detail: "深耕剧本创作十余年，兼具制片与投资经验，擅长女频内容、爆款逻辑与 IP 全案统筹", photo: "dongxiaojing" },
+  { name: "苏迪克", group: "producer", role: "制片人", detail: "深耕 AI 视觉创作与项目落地，擅长图像生成、视觉优化与智能分镜设计", photo: "sudike" },
   { name: "庞哲", group: "director", role: "总导演", detail: "青年编导、内容策划总监，擅长以内容为锚叙事，以创意之翼破界", photo: "pangzhe" },
   { name: "Vinny", group: "director", role: "导演", detail: "青年导演、艺术学硕士，用影像完成有温度的叙事，让传统持续被阅读", photo: "vinny" },
   { name: "张铭源", group: "art", role: "主程序开发", detail: "计算机视觉硕士，6年游戏开发与影视技术编程经验", photo: "zhangmingyuan" },
@@ -139,7 +140,6 @@ const team = [
   { name: "李保栋", group: "art", role: "置景师", detail: "40余年实景搭建与管理经验，长期参与头部电影美术制作", photo: "libaodong" },
   { name: "舒连宝", group: "art", role: "置景组长", detail: "从业25年+，擅长大型古装与奇幻场景的实景搭设", photo: "shulianbao" },
   { name: "袁天琪", group: "art", role: "概念设计师", detail: "深耕电影、游戏概念设计与气氛图绘制，专注国风视觉开发", photo: "yuantianqi" },
-  { name: "苏迪克", group: "art", role: "AI视觉技术", detail: "专注AIGC在影视美术、场景生成与动画辅助领域的落地应用", photo: "sudike" },
   { name: "王凯", group: "director", role: "摄影指导 / 导演 / 制片人", detail: "长期活跃于浙江影视制作一线，兼具摄影指导、导演与制片视角，擅长全流程统筹和商业影像创作", photo: "wangkai" },
   { name: "熊子莹", group: "other", role: "编导", detail: "主导文旅实景项目及大型活动，具备从统筹到落地的全链条能力", photo: "xiongziying" },
   { name: "白慧艳", group: "other", role: "剪辑师", detail: "3年信息流广告与短视频剪辑经验，熟练使用各类AI剪辑工具", photo: "baihuiyan" },
@@ -249,7 +249,7 @@ function registerDeferredImages(root = document) {
 function registerTeamOriginals(root = document) {
   root.querySelectorAll(".team-card[data-member-index]").forEach(card => {
     const member = team[Number(card.dataset.memberIndex)];
-    if (member?.photo) registerImageCandidate(`assets/team/${member.photo}.webp?v=339df4ded0ac`, { anchor: card });
+    if (member?.photo) registerImageCandidate(`assets/team/${member.photo}.webp?v=b5a8d5f49abc`, { anchor: card });
   });
   scheduleImageWork();
 }
@@ -435,7 +435,7 @@ function openTeam(index) {
   teamModalVisual.classList.toggle("no-photo", !member.photo);
   teamModalVisual.style.removeProperty("--team-photo-ratio");
   teamModalVisual.innerHTML = member.photo
-    ? `<img src="assets/team/${member.photo}.webp?v=339df4ded0ac" alt="${member.name}团队资料">`
+    ? `<img src="assets/team/${member.photo}.webp?v=b5a8d5f49abc" alt="${member.name}团队资料">`
     : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong><small>${groupLabels[member.group]}</small>`;
   if (member.photo) {
     const image = teamModalVisual.querySelector("img");
@@ -461,7 +461,7 @@ function renderTeam(filter = "all") {
   rail.innerHTML = entries.map((member, index) => {
     const memberIndex = team.indexOf(member);
     const visual = member.photo
-          ? `<img data-src="assets/team/thumbs/${member.photo}.webp?v=339df4ded0ac" alt="${member.name}团队资料" loading="lazy" decoding="async">`
+          ? `<img data-src="assets/team/thumbs/${member.photo}.webp?v=b5a8d5f49abc" alt="${member.name}团队资料" loading="lazy" decoding="async">`
       : `<strong aria-hidden="true">${member.name.slice(0, 1)}</strong>`;
     return `<button class="team-card" type="button" data-member-index="${memberIndex}" aria-label="查看${member.name}详情">
       <span class="team-photo ${member.photo ? "" : "no-photo"}">${visual}<span class="team-role-index">${String(index + 1).padStart(2, "0")}</span></span>
